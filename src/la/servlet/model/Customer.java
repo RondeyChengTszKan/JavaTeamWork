@@ -27,6 +27,15 @@ public class Customer {
         super();
     }
 
+    public Customer(int id,String name,String postal,String address,String phone,String password){
+        this.id=id;
+        this.name=name;
+        this.postal=postal;
+        this.address=address;
+        this.phone=phone;
+        this.password=password;
+    }
+
     public String getName() {
         return name;
     }
