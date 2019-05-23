@@ -24,7 +24,7 @@
     <img src="${pageContext.request.contextPath}/image/<%=item.getImage()%>" alt="">
     <p>商品名：<%= item.getName()%></p>
     <p>価格：<%=item.getPrice()%></p>
-    <a href="/ItemServlet?action=show&id=<%=item.getId()%>">商品詳細</a>
+    <a href="/JavaTeamWork_war_exploded/ItemServlet?action=show&id=<%=item.getId()%>">商品詳細</a>
 </div>
 <% } %>
 
