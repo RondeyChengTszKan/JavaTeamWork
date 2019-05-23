@@ -7,6 +7,6 @@
 
     <servlet>
         <servlet-name>ItemShowServlet</servlet-name>
-        <servlet-class>la.servlet.ItemShowServlet</servlet-class>
+        <servlet-class>la.servlet.ItemServlet</servlet-class>
     </servlet>
 </web-app>
