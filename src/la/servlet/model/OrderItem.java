@@ -9,6 +9,7 @@ public class OrderItem {
     private int itemId;
     private int price;
     private int quantity;
+    private String name;
     private String size;
     private String color;
     private Map validation;
@@ -81,6 +82,14 @@ public class OrderItem {
 
     public Map getValidation() {
         return validation;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public int save() throws SQLException {
