@@ -1,6 +1,9 @@
 package la.servlet;
 
+import la.servlet.model.Clothes;
+
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -32,7 +35,16 @@ public class ItemServlet extends HttpServlet {
 
     public void init() throws ServletException {
         // TODO: initで商品一覧を取得
-        
+        List<Clothes> list = new ArrayList<>() {{
+            add(new Clothes());
+        }};
+        list.get(0).setName("JSTシャツ");
+        list.get(0).setPrice(3000);
+        list.get(0).setImage("1.jpeg");
+        list.get(0).setColor("黄色");
+        list.get(0).setSize("M");
+        getServletContext().setAttribute("clothes", list);
+
 //        try {
 //            ClothesDAO dao = new ClothesDAO();
 //            List<Clothes> list = dao.findAllClothes();
