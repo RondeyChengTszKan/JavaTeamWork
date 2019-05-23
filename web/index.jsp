@@ -9,14 +9,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <html>
-<head>
+  <head>
     <title>$Title$</title>
-</head>
-<body>
-<jsp:include page="header.jsp"/>
+  </head>
+  <body>
+  <jsp:include page="header.jsp"/>
 
-<h1>商品一覧</h1>
-
+  <h1>商品一覧</h1>
 
 <% List<Clothes> items = (List<Clothes>) application.getAttribute("clothes"); %>
 
@@ -29,10 +28,5 @@
 </div>
 <% } %>
 
-
-
-
-
-
-</body>
+  </body>
 </html>
