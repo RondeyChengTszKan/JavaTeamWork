@@ -79,6 +79,10 @@ public class Clothes {
         this.created = created;
     }
 
+    public Map getValidation() {
+        return validation;
+    }
+
     public static List getList(String keyword){
         List<Clothes> itemSet = new ArrayList<Clothes>();
         return itemSet;
