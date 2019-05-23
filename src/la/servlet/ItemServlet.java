@@ -13,20 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet("/ItemServlet")
 public class ItemServlet extends HttpServlet {
-    private static final long serialVersionUID = 1L;
-
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ItemServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws javax.servlet.ServletException, IOException {
-        doGet(request, response);
-    }
 
     private void gotoPage(HttpServletRequest request, HttpServletResponse response, String page) throws ServletException, IOException {
         RequestDispatcher rd = request.getRequestDispatcher(page);
@@ -56,18 +44,6 @@ public class ItemServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws javax.servlet.ServletException, IOException {
-        try {
-            String action = request.getParameter("action");
-            if (action == null || action.equals("list") || action.length() == 0) {
-                gotoPage(request, response, "/index.jsp");
-            }else {
-                request.setAttribute("message", "正しく操作してください");
-                gotoPage(request, response, "/showError.jsp");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            request.setAttribute("message", "内部エラーが発生しました");
-            gotoPage(request, response, "/showError.jsp");
-        }
+
     }
 }

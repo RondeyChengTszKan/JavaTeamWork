@@ -6,14 +6,11 @@ import java.util.Map;
 
 public class Order {
     private static int id;
-    private String name;
-    private String postal;
-    private String address;
-    private String phone;
     private Date updated;
     private Date created;
     private Map orderItem;
     private Map validation;
+    private Customer customer;
 
     public Order() {
         super();
@@ -23,44 +20,16 @@ public class Order {
 
     }
 
+    public Customer getCustomer() {
+        return customer;
+    }
+
     public static int getId() {
         return id;
     }
 
     public static void setId(int id) {
         Order.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getPostal() {
-        return postal;
-    }
-
-    public void setPostal(String postal) {
-        this.postal = postal;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
     }
 
     public Date getUpdated() {
