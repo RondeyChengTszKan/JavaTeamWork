@@ -14,6 +14,7 @@ public class Clothes {
     private Date updated;
     private Date created;
     private Map validation;
+    private String image;
 
     public Clothes() {
         super();
@@ -81,6 +82,14 @@ public class Clothes {
 
     public Map getValidation() {
         return validation;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public static List getList(String keyword){
