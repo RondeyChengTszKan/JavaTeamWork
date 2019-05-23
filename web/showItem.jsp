@@ -12,6 +12,6 @@
     <title>商品個別ページ</title>
 </head>
 <body>
-
+商品個別ページ
 </body>
 </html>

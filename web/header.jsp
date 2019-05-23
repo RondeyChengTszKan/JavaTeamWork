@@ -13,7 +13,7 @@
         商品リスト
     </a>
 
-    <a href="/LoginServlet">
+    <a href="/JavaTeamWork_war_exploded/signIn.jsp">
         サインイン
     </a>
 </header>
