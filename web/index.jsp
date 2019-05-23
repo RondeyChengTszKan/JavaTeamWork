@@ -11,6 +11,9 @@
     <title>$Title$</title>
   </head>
   <body>
-  $END$
+  <jsp:include page="header.jsp"/>
+
+  <h1>商品一覧</h1>
+
   </body>
 </html>
