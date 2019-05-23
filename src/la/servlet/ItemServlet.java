@@ -67,8 +67,8 @@ public class ItemServlet extends HttpServlet {
                 // ここからモックデータ
                 id = 1;
                 Clothes clothe = new Clothes();
-                clothe.setSize("M");
-                clothe.setColor("黄色");
+                clothe.setSize("S M L");
+                clothe.setColor("yellow white");
                 clothe.setImage("1.jpeg");
                 clothe.setPrice(3000);
                 clothe.setName("JSTシャツ");
