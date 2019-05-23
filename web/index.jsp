@@ -7,20 +7,13 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<head>
+  <head>
     <title>$Title$</title>
-</head>
-<body>
-<jsp:include page="header.jsp"/>
+  </head>
+  <body>
+  <jsp:include page="header.jsp"/>
 
-<h1>商品一覧</h1>
+  <h1>商品一覧</h1>
 
-<div>
-    <img src="${pageContext.request.contextPath}/image/testImage.jpeg" alt="">
-    <p>商品名：Javascript Tシャツ</p>
-    <p>価格：800yen</p>
-    <a href="/ItemServlet">商品詳細</a>
-</div>
-
-</body>
+  </body>
 </html>
