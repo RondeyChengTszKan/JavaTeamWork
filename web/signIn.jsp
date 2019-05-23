@@ -13,7 +13,7 @@
 <body>
 <h1>ログイン</h1>
 <p>パスワードを入力してください</p>
-<form action="" method="post">
+<form action="/JavaTeamWork_war_exploded/LoginServlet" method="post">
     ユーザー名：<input type="text" name="userName" size="10">
     <br>
     <br>
