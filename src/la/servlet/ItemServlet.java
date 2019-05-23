@@ -1,6 +1,7 @@
 package la.servlet;
 
 import java.io.IOException;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,12 +10,52 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+@WebServlet("/ItemServlet")
 public class ItemServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws javax.servlet.ServletException, IOException {
+    private static final long serialVersionUID = 1L;
 
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public ItemServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws javax.servlet.ServletException, IOException {
+        doGet(request, response);
+    }
+
+    private void gotoPage(HttpServletRequest request, HttpServletResponse response, String page) throws ServletException, IOException {
+        RequestDispatcher rd = request.getRequestDispatcher(page);
+        rd.forward(request, response);
+    }
+
+    public void init() throws ServletException {
+        // TODO: initで商品一覧を取得
+        
+//        try {
+//            ClothesDAO dao = new ClothesDAO();
+//            List<Clothes> list = dao.findAllClothes();
+//            getServletContext().setAttribute("clothes", list);
+//        } catch (DAOException e) {
+//            e.printStackTrace();
+//            throw new ServletException();
+//        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws javax.servlet.ServletException, IOException {
-
+        try {
+            String action = request.getParameter("action");
+            if (action == null || action.equals("list") || action.length() == 0) {
+                gotoPage(request, response, "/index.jsp");
+            }else {
+                request.setAttribute("message", "正しく操作してください");
+                gotoPage(request, response, "/showError.jsp");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            request.setAttribute("message", "内部エラーが発生しました");
+            gotoPage(request, response, "/showError.jsp");
+        }
     }
 }
