@@ -60,7 +60,19 @@ public class ItemServlet extends HttpServlet {
             String action = request.getParameter("action");
             if (action == null || action.equals("list") || action.length() == 0) {
                 gotoPage(request, response, "/index.jsp");
-            }else {
+            } else if (action.equals("show")) {
+                int id = Integer.parseInt(request.getParameter("id"));
+                // TODO: dao.getById みたいなのする
+
+                // ここからモックデータ
+                id = 1;
+                Clothes clothe = new Clothes();
+                clothe.setSize("S M L");
+                clothe.setColor("yellow white");
+                clothe.setImage("1.jpeg");
+                clothe.setPrice(3000);
+                clothe.setName("JSTシャツ");
+            } else {
                 request.setAttribute("message", "正しく操作してください");
                 gotoPage(request, response, "/showError.jsp");
             }
