@@ -20,12 +20,12 @@ public class ItemDAO {
         PreparedStatement st=null;
         ResultSet rs=null;
         try{
-            String sql="Select * From product left outer join size_master on product.size_id=size_master.id  left outer join on colour_master on product.color=color_master.id";
+            String sql="Select * From tshirt_master";
             st=con.prepareStatement(sql);
             rs=st.executeQuery();
             List<Clothes>list=new ArrayList<Clothes>();
             while(rs.next()){
-                int code=rs.getInt("code");
+                int id=rs.getInt("id");
                 String name=rs.getString("name");
                 int price=rs.getInt("price");
                 Clothes bean=new Clothes();
@@ -48,10 +48,12 @@ public class ItemDAO {
         }
     }
 
+  
+
     private void getConnection()throws DAOException {
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/sample?user=student&password=himitu");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/Clothes?user=student&password=himitu");
         }
         catch(Exception e){
             throw new DAOException("接続に失敗しました");

@@ -20,9 +20,15 @@ public class Clothes {
         super();
     }
 
-    public Clothes(Map requestParams) {
-
+    public Clothes(int id, String name, int price, String size, String color, String image) {
+        this.id=id;
+        this.name=name;
+        this.price=price;
+        this.size=size;
+        this.color=color;
+        this.image=image;
     }
+
 
     public String getColor() {
         return color;
