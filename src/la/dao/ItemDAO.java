@@ -20,7 +20,7 @@ public class ItemDAO {
         PreparedStatement st=null;
         ResultSet rs=null;
         try{
-            String sql="Select * From item";
+            String sql="Select * From product left outer join size_master on product.size_id=size_master.id  left outer join on colour_master on product.color=color_master.id";
             st=con.prepareStatement(sql);
             rs=st.executeQuery();
             List<Clothes>list=new ArrayList<Clothes>();

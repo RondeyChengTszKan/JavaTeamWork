@@ -26,7 +26,7 @@ public class LoginServlet extends HttpServlet {
             LoginCheckBean lcb=new LoginCheckBean();
             if(lcb.getCustomer(bean,pass)!=null){
                 request.setAttribute("bean",bean);
-                RequestDispatcher rd=request.getRequestDispatcher("/showItem.jsp");
+                RequestDispatcher rd=request.getRequestDispatcher("/ItemServlet");
                 rd.forward(request,response);
                 session.setAttribute("Login",bean);
             }
