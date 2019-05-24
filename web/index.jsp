@@ -9,24 +9,27 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <html>
-  <head>
+<head>
     <title>$Title$</title>
-  </head>
-  <body>
-  <jsp:include page="header.jsp"/>
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+<jsp:include page="header.jsp"/>
 
-  <h1>商品一覧</h1>
+<h1>商品一覧</h1>
 
 <% List<Clothes> items = (List<Clothes>) application.getAttribute("clothes"); %>
 
 <% for (Clothes item : items) { %>
 <div>
     <img src="${pageContext.request.contextPath}/image/<%=item.getImage()%>" alt="">
-    <p>商品名：<%= item.getName()%></p>
-    <p>価格：<%=item.getPrice()%></p>
+    <p>商品名：<%= item.getName()%>
+    </p>
+    <p>価格：<%=item.getPrice()%>
+    </p>
     <a href="/JavaTeamWork_war_exploded/ItemServlet?action=show&id=<%=item.getId()%>">商品詳細</a>
 </div>
 <% } %>
 
-  </body>
+</body>
 </html>

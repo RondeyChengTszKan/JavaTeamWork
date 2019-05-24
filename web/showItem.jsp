@@ -28,7 +28,8 @@
     <p>価格：3000yen</p>
 </div>
 <div>
-    <form action="/CartServlet" method="post">
+    <form action="/JavaTeamWork_war_exploded/CartServlet?action=add" method="post">
+        <input type="hidden" name="item_id" value=<%=clothes.getId()%>>
         <input type="radio" name="size" value="S"><%= size[0] %>
         <input type="radio" name="size" value="M"><%= size[1] %>
         <input type="radio" name="size" value="L"><%= size[2] %>
