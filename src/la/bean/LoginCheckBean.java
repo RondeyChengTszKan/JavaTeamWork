@@ -2,8 +2,6 @@ package la.bean;
 
 import la.dao.CustomerDAO;
 import la.servlet.model.Customer;
-import la.bean.CustomerListBean;
-
 
 import java.util.ArrayList;
 
