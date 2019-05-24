@@ -22,11 +22,9 @@
 
 <% for (Clothes item : items) { %>
 <div>
-    <img src="${pageContext.request.contextPath}/image/<%=item.getImage()%>" alt="">
-    <p>商品名：<%= item.getName()%>
-    </p>
-    <p>価格：<%=item.getPrice()%>
-    </p>
+    <img src="${pageContext.request.contextPath}/image/<%=item.getImagelist().get(0)%>" alt="">
+    <p>商品名：<%= item.getName()%></p>
+    <p>価格：<%=item.getPrice()%></p>
     <a href="/JavaTeamWork_war_exploded/ItemServlet?action=show&id=<%=item.getId()%>">商品詳細</a>
 </div>
 <% } %>

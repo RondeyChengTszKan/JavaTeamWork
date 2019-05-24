@@ -39,10 +39,8 @@ public class ItemServlet extends HttpServlet {
 
         try {
             ItemDAO dao = new ItemDAO();
-            List<Clothes> list = dao.findall();
-        list.get(0).setImage("1.jpeg");
-        list.get(0).setColor("黄色");
-        list.get(0).setSize("M");
+            List<Clothes> list = new ArrayList<>();
+            list.addAll(dao.findall());
             getServletContext().setAttribute("clothes", list);
         } catch (DAOException e) {
             e.printStackTrace();
@@ -57,16 +55,8 @@ public class ItemServlet extends HttpServlet {
                 gotoPage(request, response, "/index.jsp");
             } else if (action.equals("show")) {
                 int id = Integer.parseInt(request.getParameter("id"));
-                // TODO: dao.getById みたいなのする
-
-                // ここからモックデータ
-                id = 1;
-                Clothes clothe = new Clothes();
-                clothe.setSize("S M L");
-                clothe.setColor("yellow white");
-                clothe.setImage("1.jpeg");
-                clothe.setPrice(3000);
-                clothe.setName("JSTシャツ");
+                ItemDAO dao = new ItemDAO();
+                Clothes clothe = dao.findall().get(id);
                 request.setAttribute("item", clothe);
                 gotoPage(request, response, "/showItem.jsp");
             } else {
