@@ -1,0 +1,11 @@
+.header{
+    height: 100px;
+    background-color: firebrick;
+}
+
+.header a{
+    color: white;
+    float: left;
+    margin: 20px;
+    line-height: 100px;
+}

@@ -65,6 +65,8 @@ public class ItemServlet extends HttpServlet {
                 clothe.setImage("1.jpeg");
                 clothe.setPrice(3000);
                 clothe.setName("JSTシャツ");
+                request.setAttribute("item", clothe);
+                gotoPage(request, response, "/showItem.jsp");
             } else {
                 request.setAttribute("message", "正しく操作してください");
                 gotoPage(request, response, "/showError.jsp");

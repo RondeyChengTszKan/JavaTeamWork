@@ -47,7 +47,6 @@ public class CartServlet extends HttpServlet {
             e.printStackTrace();
             request.setAttribute("message", "内部エラーが発生しました");
         }
-
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
