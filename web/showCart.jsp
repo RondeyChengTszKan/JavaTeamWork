@@ -12,6 +12,7 @@
 <head>
     <title>商品購入カートページ</title>
     <link rel="stylesheet" href="/JavaTeamWork_war_exploded/css/style.css" type="text/css">
+
 </head>
 <body>
 

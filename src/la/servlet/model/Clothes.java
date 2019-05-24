@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Clothes {
-    private static int id;
+    private int id;
     private String name;
     private int price;
     private String size;
@@ -32,7 +32,6 @@ public class Clothes {
         this.image=image;
     }
 
-
     public String getColor() {
         return color;
     }
@@ -41,12 +40,12 @@ public class Clothes {
         this.color = color;
     }
 
-    public static int getId() {
+    public int getId() {
         return id;
     }
 
-    public static void setId(int id) {
-        Clothes.id = id;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
