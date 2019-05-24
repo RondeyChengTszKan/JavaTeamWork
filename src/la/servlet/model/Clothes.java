@@ -11,6 +11,8 @@ public class Clothes {
     private int price;
     private String size;
     private String color;
+    private List<String> sizelist;
+    private List<String> colorlist;
     private Date updated;
     private Date created;
     private Map validation;
@@ -111,5 +113,21 @@ public class Clothes {
     public Clothes getClothes(int id){
         Clothes clothes = new Clothes();
         return clothes;
+    }
+
+    public void setSizelist(List<String> sizelist) {
+        this.sizelist = sizelist;
+    }
+
+    public List<String> getSizelist() {
+        return sizelist;
+    }
+
+    public void setColorlist(List<String> colorlist) {
+        this.colorlist = colorlist;
+    }
+
+    public List<String> getColorlist() {
+        return colorlist;
     }
 }
