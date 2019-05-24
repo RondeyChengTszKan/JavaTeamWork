@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <header class="header">
     <a href="/JavaTeamWork_war_exploded/ItemServlet">
@@ -17,7 +17,10 @@
         カート
     </a>
 
-    <a href="/JavaTeamWork_war_exploded/LoginServlet">
+    <% Object sObject =  session.getAttribute("Login"); %>
+    <c:if test="{empty sObject}">
+    <a href=“/JavaTeamWork_war_exploded/LoginServlet”>
         サインイン
     </a>
+    </c:if>
 </header>
