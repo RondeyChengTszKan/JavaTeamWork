@@ -11,6 +11,8 @@ public class Clothes {
     private int price;
     private String size;
     private String color;
+    private List<String> sizelist;
+    private List<String> colorlist;
     private Date updated;
     private Date created;
     private Map validation;
@@ -20,9 +22,15 @@ public class Clothes {
         super();
     }
 
-    public Clothes(Map requestParams) {
-
+    public Clothes(int id, String name, int price, String size, String color, String image) {
+        this.id=id;
+        this.name=name;
+        this.price=price;
+        this.size=size;
+        this.color=color;
+        this.image=image;
     }
+
 
     public String getColor() {
         return color;
@@ -105,5 +113,21 @@ public class Clothes {
     public Clothes getClothes(int id){
         Clothes clothes = new Clothes();
         return clothes;
+    }
+
+    public void setSizelist(List<String> sizelist) {
+        this.sizelist = sizelist;
+    }
+
+    public List<String> getSizelist() {
+        return sizelist;
+    }
+
+    public void setColorlist(List<String> colorlist) {
+        this.colorlist = colorlist;
+    }
+
+    public List<String> getColorlist() {
+        return colorlist;
     }
 }
