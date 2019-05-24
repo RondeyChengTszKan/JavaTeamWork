@@ -11,9 +11,12 @@
 <html>
 <head>
     <title>$Title$</title>
-    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <link rel="stylesheet" href="/JavaTeamWork_war_exploded/css/style.css" type="text/css">
 </head>
 <body>
+
+<div class="container">
+
 <jsp:include page="header.jsp"/>
 
 <h1>商品一覧</h1>
@@ -21,15 +24,21 @@
 <% List<Clothes> items = (List<Clothes>) application.getAttribute("clothes"); %>
 
 <% for (Clothes item : items) { %>
-<div>
+
+    <hr>
+<div class="items">
     <img src="${pageContext.request.contextPath}/image/<%=item.getImage()%>" alt="">
-    <p>商品名：<%= item.getName()%>
-    </p>
-    <p>価格：<%=item.getPrice()%>
-    </p>
-    <a href="/JavaTeamWork_war_exploded/ItemServlet?action=show&id=<%=item.getId()%>">商品詳細</a>
+    <div class="itemInfo">
+        <p><%= item.getName()%></p>
+        <p>Price：<%=item.getPrice()%>yen</p>
+        <a href="/JavaTeamWork_war_exploded/ItemServlet?action=show&id=<%=item.getId()%>">商品詳細</a>
+    </div>
+
 </div>
+    <hr>
 <% } %>
+
+</div>
 
 </body>
 </html>

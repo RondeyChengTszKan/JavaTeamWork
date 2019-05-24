@@ -8,16 +8,21 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 
-<header class="header">
-    <a href="/JavaTeamWork_war_exploded/ItemServlet">
+<header>
+
+
+    <img src="/JavaTeamWork_war_exploded/image/やばT.001.jpeg" alt="">
+
+
+    <a class="header-link" href="/JavaTeamWork_war_exploded/ItemServlet">
         商品リスト
     </a>
 
-    <a href="/JavaTeamWork_war_exploded/CartServlet?action=show">
+    <a class="header-link" href="/JavaTeamWork_war_exploded/CartServlet?action=show">
         カート
     </a>
 
-    <a href="/JavaTeamWork_war_exploded/LoginServlet">
+    <a class="header-link" href="/JavaTeamWork_war_exploded/LoginServlet">
         サインイン
     </a>
 </header>

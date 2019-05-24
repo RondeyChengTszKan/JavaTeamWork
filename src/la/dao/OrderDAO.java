@@ -20,7 +20,7 @@ public class OrderDAO {
         ResultSet rs=null;
         try {
 
-           String sql="INSERT INTO ordered(customer_id) VALUES(?)";
+           String sql="SELECT * FROM ";
             st=con.prepareStatement(sql);
             st.setInt(1,customer.getId());
             st.executeUpdate();
