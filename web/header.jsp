@@ -8,12 +8,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 
-<header>
-    <a href="/ItemListServlet">
+<header class="header">
+    <a href="/JavaTeamWork_war_exploded/ItemServlet">
         商品リスト
     </a>
 
-    <a href="/JavaTeamWork_war_exploded/signIn.jsp">
+    <a href="/JavaTeamWork_war_exploded/CartServlet?action=show">
+        カート
+    </a>
+
+    <a href="/JavaTeamWork_war_exploded/LoginServlet">
         サインイン
     </a>
 </header>
