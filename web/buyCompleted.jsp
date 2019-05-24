@@ -16,30 +16,43 @@
 </head>
 <body>
 
-<jsp:include page="header.jsp"/>
+<div class="container">
 
-<% CartBean cart = (CartBean) session.getAttribute("cart"); %>
-<% Map<Integer, OrderItem> items = cart.getItems(); %>
+    <jsp:include page="header.jsp"/>
 
-<% int totalPrice = 0; %>
+    <% CartBean cart = (CartBean) session.getAttribute("cart"); %>
+    <% Map<Integer, OrderItem> items = cart.getItems(); %>
+
+    <% int totalPrice = 0; %>
 
 
-<table border="1">
-    <tr><td>商品名</td><td>サイズ</td><td>カラー</td><td>単価</td></tr>
+    <table border="1">
+        <tr>
+            <td>商品名</td>
+            <td>サイズ</td>
+            <td>カラー</td>
+            <td>単価</td>
+        </tr>
 
-    <% for (Map.Entry<Integer, OrderItem> entry : items.entrySet()) { %>
-    <tr>
-        <td><%=entry.getValue().getName()%></td>
-        <td><%=entry.getValue().getSize()%></td>
-        <td><%=entry.getValue().getColor()%></td>
-        <td><%=entry.getValue().getPrice()%></td>
-    </tr>
-    <% totalPrice += entry.getValue().getPrice(); %>
-    <% } %>
+        <% for (Map.Entry<Integer, OrderItem> entry : items.entrySet()) { %>
+        <tr>
+            <td><%=entry.getValue().getName()%>
+            </td>
+            <td><%=entry.getValue().getSize()%>
+            </td>
+            <td><%=entry.getValue().getColor()%>
+            </td>
+            <td><%=entry.getValue().getPrice()%>
+            </td>
+        </tr>
+        <% totalPrice += entry.getValue().getPrice(); %>
+        <% } %>
 
-</table>
+    </table>
 
-<h2>購入が完了しました！</h2>
+    <h2>購入が完了しました！</h2>
+
+</div>
 
 </body>
 </html>
