@@ -55,16 +55,8 @@ public class ItemServlet extends HttpServlet {
                 gotoPage(request, response, "/index.jsp");
             } else if (action.equals("show")) {
                 int id = Integer.parseInt(request.getParameter("id"));
-                // TODO: dao.getById みたいなのする
-
-                // ここからモックデータ
-                id = 1;
-                Clothes clothe = new Clothes();
-                clothe.setSize("S M L");
-                clothe.setColor("yellow white");
-                clothe.setImage("1.jpeg");
-                clothe.setPrice(3000);
-                clothe.setName("JSTシャツ");
+                ItemDAO dao = new ItemDAO();
+                Clothes clothe = dao.findall().get(id);
                 request.setAttribute("item", clothe);
                 gotoPage(request, response, "/showItem.jsp");
             } else {
