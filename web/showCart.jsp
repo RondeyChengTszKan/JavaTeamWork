@@ -11,39 +11,53 @@
 <html>
 <head>
     <title>商品購入カートページ</title>
+    <link rel="stylesheet" href="/JavaTeamWork_war_exploded/css/style.css" type="text/css">
 </head>
 <body>
 
-<jsp:include page="header.jsp"/>
+<div class="container">
 
-<h1>現在のカートの中身</h1>
+    <jsp:include page="header.jsp"/>
 
-<% CartBean cart = (CartBean) session.getAttribute("cart"); %>
-<% Map<Integer, OrderItem> items = cart.getItems(); %>
+    <h1>現在のカートの中身</h1>
 
-<% int totalPrice = 0; %>
+    <% CartBean cart = (CartBean) session.getAttribute("cart"); %>
+    <% Map<Integer, OrderItem> items = cart.getItems(); %>
+
+    <% int totalPrice = 0; %>
 
 
-<table border="1">
-    <tr><td>商品名</td><td>サイズ</td><td>カラー</td><td>単価</td></tr>
+    <table border="1">
+        <tr>
+            <td>商品名</td>
+            <td>サイズ</td>
+            <td>カラー</td>
+            <td>単価</td>
+        </tr>
 
-    <% for (Map.Entry<Integer, OrderItem> entry : items.entrySet()) { %>
-    <tr>
-        <td><%=entry.getValue().getName()%></td>
-        <td><%=entry.getValue().getSize()%></td>
-        <td><%=entry.getValue().getColor()%></td>
-        <td><%=entry.getValue().getPrice()%></td>
-    </tr>
-    <% totalPrice += entry.getValue().getPrice(); %>
-    <% } %>
+        <% for (Map.Entry<Integer, OrderItem> entry : items.entrySet()) { %>
+        <tr>
+            <td><%=entry.getValue().getName()%>
+            </td>
+            <td><%=entry.getValue().getSize()%>
+            </td>
+            <td><%=entry.getValue().getColor()%>
+            </td>
+            <td><%=entry.getValue().getPrice()%>
+            </td>
+        </tr>
+        <% totalPrice += entry.getValue().getPrice(); %>
+        <% } %>
 
-</table>
+    </table>
 
-<p>合計金額：<%=totalPrice%></p>
+    <p>合計金額：<%=totalPrice%>
+    </p>
 
-<form action="/JavaTeamWork_war_exploded/buyCompleted.jsp" method="post">
-    <input type="submit" value="購入する">
-</form>
+    <form action="/JavaTeamWork_war_exploded/buyCompleted.jsp" method="post">
+        <input type="submit" value="購入する">
+    </form>
 
+</div>
 </body>
 </html>
