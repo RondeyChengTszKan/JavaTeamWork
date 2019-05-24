@@ -30,8 +30,9 @@ public class ItemDAO {
                 Clothes bean=new Clothes();
                 bean.setName(name);
                 bean.setPrice(price);
-                //bean.setSizelist(findsize(id));
-                //bean.setColorlist(findcolor(id));
+                bean.setSizelist(findsize(id));
+                bean.setColorlist(findcolor(id));
+                bean.setImagelist(findimage(id));
                 list.add(bean);
             }
             return list;
@@ -55,14 +56,14 @@ public class ItemDAO {
         PreparedStatement st=null;
         ResultSet rs=null;
         try{
-            String sql="Select size_master.name From product left join size_master " +
-                    "on (product.size_id=size_master.id) where product.id="+id;
+            String sql="Select size_master.name From product left join size_master on (product.size_id=size_master.id) where product.tshirt_id=?";
             st=con.prepareStatement(sql);
+            st.setInt(1,id);
             rs=st.executeQuery();
             List<String>list=new ArrayList<String>();
             while(rs.next()){
-                String size_name=rs.getString("name");
-                list.add(size_name);
+            String sizeName = rs.getString("name");
+                list.add(sizeName);
             }
             return list;
         }catch(Exception e){
@@ -70,9 +71,9 @@ public class ItemDAO {
             throw new DAOException("レコードの取得に失敗しました");
         }finally{
             try{
-                if(rs!=null)rs.close();
-                if(st!=null)st.close();
-                close();
+            //    if(rs!=null)rs.close();
+            //    if(st!=null)st.close();
+            //    close();
             }catch(Exception e){
                 throw new DAOException("リソースの解放に失敗しました");
             }
@@ -86,7 +87,7 @@ public class ItemDAO {
         ResultSet rs=null;
         try{
             String sql="Select color_master.name From product left join color_master " +
-                    "on (product.color_id=color_master.id) where product.id="+id;
+                    "on (product.color_id=color_master.id) where product.tshirt_id="+id;
             st=con.prepareStatement(sql);
             rs=st.executeQuery();
             List<String>list=new ArrayList<String>();
@@ -100,14 +101,44 @@ public class ItemDAO {
             throw new DAOException("レコードの取得に失敗しました");
         }finally{
             try{
-                if(rs!=null)rs.close();
-                if(st!=null)st.close();
-                close();
+                //if(rs!=null)rs.close();
+                //if(st!=null)st.close();
+                //close();
             }catch(Exception e){
                 throw new DAOException("リソースの解放に失敗しました");
             }
         }
     }
+
+    public List<String>findimage(int id) throws DAOException {
+        if(con==null)
+            getConnection();
+        PreparedStatement st=null;
+        ResultSet rs=null;
+        try{
+            String sql="Select image_url From product where product.tshirt_id="+id;
+            st=con.prepareStatement(sql);
+            rs=st.executeQuery();
+            List<String>list=new ArrayList<String>();
+            while(rs.next()){
+                String imageUrl=rs.getString("image_url");
+                list.add(imageUrl);
+            }
+            return list;
+        }catch(Exception e){
+            e.printStackTrace();
+            throw new DAOException("レコードの取得に失敗しました");
+        }finally{
+            try{
+                //if(rs!=null)rs.close();
+                //if(st!=null)st.close();
+                //close();
+            }catch(Exception e){
+                throw new DAOException("リソースの解放に失敗しました");
+            }
+        }
+    }
+
 
 
     private void getConnection()throws DAOException {

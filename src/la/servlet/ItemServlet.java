@@ -39,10 +39,8 @@ public class ItemServlet extends HttpServlet {
 
         try {
             ItemDAO dao = new ItemDAO();
-            List<Clothes> list = dao.findall();
-        list.get(0).setImage("1.jpeg");
-        list.get(0).setColor("黄色");
-        list.get(0).setSize("M");
+            List<Clothes> list = new ArrayList<>();
+            list.addAll(dao.findall());
             getServletContext().setAttribute("clothes", list);
         } catch (DAOException e) {
             e.printStackTrace();

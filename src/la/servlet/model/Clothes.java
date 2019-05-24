@@ -17,6 +17,7 @@ public class Clothes {
     private Date created;
     private Map validation;
     private String image;
+    private List<String> imagelist;
 
     public Clothes() {
         super();
@@ -129,5 +130,13 @@ public class Clothes {
 
     public List<String> getColorlist() {
         return colorlist;
+    }
+
+    public void setImagelist(List<String> imagelist) {
+        this.imagelist = imagelist;
+    }
+
+    public List<String> getImagelist() {
+        return imagelist;
     }
 }
