@@ -28,6 +28,7 @@ public class ItemDAO {
                 String name=rs.getString("name");
                 int price=rs.getInt("price");
                 Clothes bean=new Clothes();
+                bean.setId(id-1);
                 bean.setName(name);
                 bean.setPrice(price);
                 bean.setSizelist(findsize(id));
