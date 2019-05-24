@@ -24,17 +24,17 @@
 <% List<Clothes> items = (List<Clothes>) application.getAttribute("clothes"); %>
 
 <% for (Clothes item : items) { %>
-
     <hr>
+  
 <div class="items">
-    <img src="${pageContext.request.contextPath}/image/<%=item.getImage()%>" alt="">
+    <img src="${pageContext.request.contextPath}/image/<%=item.getImagelist().get(0)%>" alt="">
     <div class="itemInfo">
         <p><%= item.getName()%></p>
         <p>Price：<%=item.getPrice()%>yen</p>
         <a href="/JavaTeamWork_war_exploded/ItemServlet?action=show&id=<%=item.getId()%>">商品詳細</a>
     </div>
-
 </div>
+  
     <hr>
 <% } %>
 

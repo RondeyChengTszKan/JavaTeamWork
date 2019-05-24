@@ -1,4 +1,5 @@
-<%@ page import="la.servlet.model.Clothes" %><%--
+<%@ page import="la.servlet.model.Clothes" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: masaya.okuda
   Date: 2019-05-23
@@ -20,22 +21,24 @@
 
 <h1><%= clothes.getName() %></h1>
 
-<%  String[] size = clothes.getSize().split(" "); %>
-<%  String[] color = clothes.getColor().split(" "); %>
+
+<% List<String> size = clothes.getSizelist(); %>
+<% List<String> color = clothes.getColorlist(); %>
 
 <div>
-    <img src="${pageContext.request.contextPath}/image/<%= clothes.getImage() %>" alt="">
+    <img src="${pageContext.request.contextPath}/image/<%= clothes.getImagelist().get(0) %>" alt="">
     <p>価格：3000yen</p>
 </div>
 <div>
     <form action="/JavaTeamWork_war_exploded/CartServlet?action=add" method="post">
         <input type="hidden" name="item_id" value=<%=clothes.getId()%>>
-        <input type="radio" name="size" value="S"><%= size[0] %>
-        <input type="radio" name="size" value="M"><%= size[1] %>
-        <input type="radio" name="size" value="L"><%= size[2] %>
+        <% for (String s : size) { %>
+            <input type="radio" name="size" value=<%= s %>><%= s %>
+        <% } %>
         <br><br>
-        <input type="radio" name="color" value="yellow"><%= color[0] %>
-        <input type="radio" name="color" value="white"><%= color[1] %>
+        <% for (String c : color) { %>
+            <input type="radio" name="color" value=<%= c %>><%= c %>
+        <% } %>
         <br><br>
         <input type="submit" value="カートに追加する">
     </form>

@@ -55,7 +55,7 @@ public class CustomerDAO {
     private void getConnection()throws DAOException {
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/Clothes?user=student&password=himitu");
+            con = DriverManager.getConnection("jdbc:mysql://10.199.80.45:9997/Clothes?user=root&password=mysql");
         }
         catch(Exception e){
             e.printStackTrace();
