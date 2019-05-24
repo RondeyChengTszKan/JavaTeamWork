@@ -11,39 +11,44 @@
 <html>
 <head>
     <title>商品個別ページ</title>
+    <link rel="stylesheet" href="/JavaTeamWork_war_exploded/css/style.css" type="text/css">
 </head>
 <body>
+<div class="container">
 
-<jsp:include page="header.jsp"/>
+    <jsp:include page="header.jsp"/>
 
-<% Clothes clothes = (Clothes) request.getAttribute("item"); %>
-
-
-<h1><%= clothes.getName() %></h1>
+    <% Clothes clothes = (Clothes) request.getAttribute("item"); %>
 
 
-<% List<String> size = clothes.getSizelist(); %>
-<% List<String> color = clothes.getColorlist(); %>
+    <h1><%= clothes.getName() %>
+    </h1>
 
-<div>
-    <img src="${pageContext.request.contextPath}/image/<%= clothes.getImagelist().get(0) %>" alt="">
-    <p>価格：3000yen</p>
-</div>
-<div>
-    <form action="/JavaTeamWork_war_exploded/CartServlet?action=add" method="post">
-        <input type="hidden" name="item_id" value=<%=clothes.getId()%>>
-        <input type="hidden" name="name" value=<%=clothes.getName()%>>
-        <input type="hidden" name="price" value=<%=clothes.getPrice()%>>
-        <% for (String s : size) { %>
+
+    <% List<String> size = clothes.getSizelist(); %>
+    <% List<String> color = clothes.getColorlist(); %>
+
+    <div>
+        <img src="${pageContext.request.contextPath}/image/<%= clothes.getImagelist().get(0) %>" alt="">
+        <p>価格：3000yen</p>
+    </div>
+    <div>
+        <form action="/JavaTeamWork_war_exploded/CartServlet?action=add" method="post">
+            <input type="hidden" name="item_id" value=<%=clothes.getId()%>>
+            <input type="hidden" name="name" value=<%=clothes.getName()%>>
+            <input type="hidden" name="price" value=<%=clothes.getPrice()%>>
+            <% for (String s : size) { %>
             <input type="radio" name="size" value=<%= s %>><%= s %>
-        <% } %>
-        <br><br>
-        <% for (String c : color) { %>
+            <% } %>
+            <br><br>
+            <% for (String c : color) { %>
             <input type="radio" name="color" value=<%= c %>><%= c %>
-        <% } %>
-        <br><br>
-        <input type="submit" value="カートに追加する">
-    </form>
+            <% } %>
+            <br><br>
+            <input type="submit" value="カートに追加する">
+        </form>
+    </div>
+
 </div>
 
 </body>
