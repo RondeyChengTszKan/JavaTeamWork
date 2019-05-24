@@ -32,6 +32,8 @@
 <div>
     <form action="/JavaTeamWork_war_exploded/CartServlet?action=add" method="post">
         <input type="hidden" name="item_id" value=<%=clothes.getId()%>>
+        <input type="hidden" name="name" value=<%=clothes.getName()%>>
+        <input type="hidden" name="price" value=<%=clothes.getPrice()%>>
         <% for (String s : size) { %>
             <input type="radio" name="size" value=<%= s %>><%= s %>
         <% } %>
