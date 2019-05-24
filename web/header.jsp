@@ -8,18 +8,24 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<header class="header">
-    <a href="/JavaTeamWork_war_exploded/ItemServlet">
+<header>
+
+
+    <img src="/JavaTeamWork_war_exploded/image/やばT.001.jpeg" alt="">
+
+
+    <a class="header-link" href="/JavaTeamWork_war_exploded/ItemServlet">
         商品リスト
     </a>
 
-    <a href="/JavaTeamWork_war_exploded/CartServlet?action=show">
+    <a class="header-link" href="/JavaTeamWork_war_exploded/CartServlet?action=show">
         カート
     </a>
 
+
     <% Object sObject =  session.getAttribute("Login"); %>
     <c:if test="{empty sObject}">
-    <a href=“/JavaTeamWork_war_exploded/LoginServlet”>
+    <a class="header-link" href=“/JavaTeamWork_war_exploded/LoginServlet”>
         サインイン
     </a>
     </c:if>

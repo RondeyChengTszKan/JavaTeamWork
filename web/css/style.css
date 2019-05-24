@@ -1,11 +1,45 @@
-.header{
-    height: 100px;
-    background-color: firebrick;
+body{
+    margin: 0;
+    padding: 0;
 }
 
-.header a{
-    color: white;
+
+
+
+
+.container{
+    width: 900px;
+    margin: 0 auto;
+}
+
+header img{
+    margin-left: 50px;
+    height: 60px;
     float: left;
+}
+
+header{
+    height: 60px;
+    background-color: lightcoral;
+}
+
+.header-link{
+    color: white;
     margin: 20px;
-    line-height: 100px;
+    line-height: 30px;
+    float: right;
+    font-size: 15px;
+}
+
+.itemInfo{
+    padding:100px;
+    float: right;
+}
+
+.items{
+    background-color: whitesmoke;
+}
+
+.items p{
+    font-size: 30px;
 }
