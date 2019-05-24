@@ -29,12 +29,12 @@ public class CartServlet extends HttpServlet {
                     session.setAttribute("cart", cart);
                 }
 
-                // TODO: DBから値を取ってくるようにする
                 OrderItem order = new OrderItem();
-                order.setName("JSTシャツ");
-                order.setPrice(3000);
-                order.setSize("M");
-                order.setColor("white");
+                order.setName(request.getParameter("name"));
+                order.setPrice(Integer.parseInt(request.getParameter("price")));
+                order.setSize(request.getParameter("size"));
+                order.setColor(request.getParameter("color"));
+                // 個数は今は1
                 cart.addCart(order, 1);
                 gotoPage(request, response, "/index.jsp");
 
